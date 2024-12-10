@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" data-theme="night">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet">
+    <title>Thread of JS</title>
+  </head>
+  <body class="h-screen flex flex-col">
+    <div class="navbar bg-base-100">
+      <div class="flex-1">
+        <a class="btn btn-ghost normal-case text-xl">Mon App</a>
+      </div>
+      <div id="theme-selector" class="flex-none">
+      </div>
+      <div class="flex-none"></div>
+    </div>
+    <div class="border-4 border-cyan-500 box"></div>
+    <div class="flex flex-col lg:flex-row w-full p-4 lg:p-8 flex-grow gap-4 lg:gap-0">
+      <section class="flex-1 border-2 border-sky-500 rounded-lg h-full">
+        <section class="flex-1 p-4 grid grid-cols-3 grid-rows-3 gap-4 h-full">
+          <div class="col-span-1 bg-base-300 rounded-lg border-4 border-pink-500">
+            <div class="bg-gray-600 text-white p-2">Call Stack</div>
+            <div id="call-stack-content" class="p-4">
+              <!-- Contenu du Call Stack -->
+            </div>
+          </div>
+
+          <div class="col-span-2 bg-base-300 rounded-lg border-4 border-purple-500">
+            <div class="bg-gray-600 text-white p-2 ">Web APIs</div>
+            <div id="web-api-content" class="p-4 grid grid-cols-3 gap-2">
+              <div class="bg-gray-800 p-2 rounded text-green-400">fetch</div>
+              <div class="bg-gray-800 p-2 rounded text-green-400">setTimeout</div>
+              <div class="bg-gray-800 p-2 rounded text-cyan-400">URL</div>
+              <!-- Autres APIs -->
+            </div>
+          </div>
+
+
+          <div class="col-span-1 row-span-2 bg-base-300 rounded-lg border-4 border-cyan-500">
+            <div class="bg-gray-600 text-white p-2">Event Loop</div>
+            <div id="event-content" class="flex items-center justify-center p-4">
+              <svg id="event-icon" class="event-icon w-16 h-16 text-cyan-400" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+              </svg>
+            </div>
+          </div>
+
+
+          <div class="col-span-2 bg-base-300 rounded-lg border-4 border-pink-500">
+            <div class="bg-gray-600 text-white p-2">Task Queue</div>
+            <div id="task-content" class="p-4">
+              <!-- Contenu de la Task Queue -->
+            </div>
+          </div>
+
+          <div class="col-span-2 bg-base-300 rounded-lg border-4 border-emerald-500">
+            <div class="bg-gray-600 text-white p-2">Microtask Queue</div>
+            <div id="microtask-content" class="p-4">
+              <!-- Contenu de la Microtask Queue -->
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <div class="divider lg:divider-horizontal divider-accent"></div>
+
+      <section class="lg:w-[40%] w-full h-full">
+        <div id="code-container" class="mockup-code border-2 border-sky-500 rounded-lg h-[40%] my-4">
+          <pre data-prefix="1" class="bg-base-200"><code><span class="text-primary">console</span>.<span class="text-info">log</span>(<span class="text-success">'Start'</span>);</code></pre>
+
+          <pre data-prefix="2"><code><span class="text-primary">setTimeout</span>(<span class="text-warning">() =></span> <span class="text-primary">console</span>.<span class="text-info">log</span>(<span class="text-success">'Timeout'</span>), <span class="text-accent">0</span>);</code></pre>
+
+          <pre data-prefix="3"><code><span >Promise</span>.<span class="text-info">resolve</span>().<span class="text-info">then</span>(<span class="text-warning">() =></span> <span class="text-primary">console</span>.<span class="text-info">log</span>(<span class="text-success">'Promise'</span>));</code></pre>
+
+          <pre data-prefix="4"><code><span class="text-primary">console</span>.<span class="text-info">log</span>(<span class="text-success">'End'</span>);</code></pre>
+        </div>
+
+        <div class="divider divider-accent"></div>
+
+        <div class="mockup-code border-2 border-sky-500 rounded-lg h-[40%] my-4">
+          <pre data-prefix="1"><code><span class="text-primary">console</span>.<span class="text-info">log</span>(<span class="text-success">'Start'</span>);</code></pre>
+
+          <pre data-prefix="2"><code><span class="text-primary">setTimeout</span>(<span class="text-warning">() =></span> <span class="text-primary">console</span>.<span class="text-info">log</span>(<span class="text-success">'Timeout'</span>), <span class="text-accent">0</span>);</code></pre>
+
+          <pre data-prefix="3"><code><span class="bg-warning text-warning-content">Promise</span>.<span class="text-info">resolve</span>().<span class="text-info">then</span>(<span class="text-warning">() =></span> <span class="text-primary">console</span>.<span class="text-info">log</span>(<span class="text-success">'Promise'</span>));</code></pre>
+
+          <pre data-prefix="4"><code><span class="text-primary">console</span>.<span class="text-info">log</span>(<span class="text-success">'End'</span>);</code></pre>
+        </div>
+        <button class="btn btn-wide btn-primary flex justify-self-center" id="code-button">Execute line</button>
+      </section>
+    </div>
+    <script type="module" src="/src/scripts/main.ts"></script>
+    <script type="module" src="/src/scripts/components/threadComponents/EventLoop.ts"></script>
+  </body>
+</html>
